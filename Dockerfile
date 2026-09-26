@@ -11,8 +11,8 @@ FROM tomcat:9.0-jdk17-temurin
 # Remove default Tomcat webapps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy built ROOT.war from builder stage
-COPY --from=builder /app/target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
+# Copy built WAR file from builder stage to Tomcat ROOT.war
+COPY --from=builder /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
 
 # Expose HTTP Port
 EXPOSE 8080
