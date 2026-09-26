@@ -1,11 +1,18 @@
-# Production Tomcat Container for SpanV Studios
+# Stage 1: Build Java WAR package using Maven
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+# Stage 2: Production Tomcat Container for SpanV Studios
 FROM tomcat:9.0-jdk17-temurin
 
 # Remove default Tomcat webapps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy packaged ROOT.war to Tomcat webapps directory
-COPY ROOT.war /usr/local/tomcat/webapps/ROOT.war
+# Copy built ROOT.war from builder stage
+COPY --from=builder /app/target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
 
 # Expose HTTP Port
 EXPOSE 8080
