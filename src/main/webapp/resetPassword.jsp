@@ -160,6 +160,8 @@
 
         <div class="email-badge">📧 <%= resetEmail %></div>
 
+
+
         <% if (error != null && !error.isEmpty()) { %>
             <div class="alert alert-error">⚠️ <%= error %></div>
         <% } %>

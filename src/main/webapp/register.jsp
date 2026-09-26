@@ -182,14 +182,7 @@
                         <input type="text" name="location" placeholder="City or Street Name" required>
                     </div>
 
-                    <div class="input-group">
-                        <label>I want to...</label>
-                        <select name="role" required>
-                            <option value="" disabled selected>Select your primary role</option>
-                            <option value="Customer">Shop & Buy designs (Customer)</option>
-                            <option value="Owner">Sell boutique designs (Owner)</option>
-                        </select>
-                    </div>
+                    <input type="hidden" name="role" value="Customer">
                 </div>
 
                 <button type="submit" class="signup-btn">Join SpanV Studios</button>

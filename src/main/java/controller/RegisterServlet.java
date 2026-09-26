@@ -21,15 +21,15 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String location = request.getParameter("location");
-        String role = request.getParameter("role");
+        String role = "Customer";
 
         if (name != null) name = name.trim();
         if (email != null) email = email.trim().toLowerCase();
         if (password != null) password = password.trim();
         if (location != null) location = location.trim();
 
-        if (name == null || email == null || password == null || role == null ||
-            name.isEmpty() || email.isEmpty() || password.isEmpty() || role.isEmpty()) {
+        if (name == null || email == null || password == null ||
+            name.isEmpty() || email.isEmpty() || password.isEmpty()) {
             response.sendRedirect("register.jsp?error=empty");
             return;
         }

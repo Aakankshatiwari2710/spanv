@@ -12,8 +12,8 @@ public class EmailUtil {
     // Default Email Configurations for SpanV Studios
     private static final String SMTP_HOST = "smtp.gmail.com";
     private static final String SMTP_PORT = "587";
-    private static final String SENDER_EMAIL = "spandanav2606@gmail.com";
-    private static final String SENDER_PASSWORD = "asucwkpwwkxcjhoe";
+    private static final String SENDER_EMAIL = System.getenv("SENDER_EMAIL") != null ? System.getenv("SENDER_EMAIL") : "sakshitiwari0627@gmail.com";
+    private static final String SENDER_PASSWORD = System.getenv("GMAIL_APP_PASSWORD") != null ? System.getenv("GMAIL_APP_PASSWORD") : "sokiqffzulntobwd";
     private static final String SENDER_NAME = "SpanV Studios";
 
     // Async thread pool so web requests never lag
